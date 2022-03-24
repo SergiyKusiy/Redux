@@ -7,7 +7,7 @@ class UserMenu extends React.Component {
       const { name, avatar_url } = this.context;
       return (
          <div class="menu">
-            <span class="menu__greeting">{`Hello, ${name}`}</span>
+            <span class="menu__greeting">{name}</span>
             <img
                alt="User Avatar"
                src={avatar_url}

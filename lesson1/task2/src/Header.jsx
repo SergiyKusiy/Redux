@@ -5,7 +5,6 @@ class Header extends React.Component {
    render() {
      return <UserMenu />;
    }
- }
+}
  
-
 export default Header;
