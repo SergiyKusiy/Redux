@@ -16,4 +16,4 @@ store.dispatch(addUser({ id: 3, name: 'Olya' }));
 
 
 store.dispatch(deleteUser(2));
-store.dispatch(updateUser(1, { id: 3, name: 'TOMAS' }));
+store.dispatch(updateUser(1, { id: 3, name: 'Vadim' }));
