@@ -1,5 +1,5 @@
 import './index.scss';
-import { store, increment, decrement, reset } from './counter';
+import { store, increment, decrement, } from './counter';
 
 store.subscribe(() => console.log(store.getState()));
 
