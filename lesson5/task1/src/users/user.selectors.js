@@ -1,3 +1,3 @@
-const userListSelector = state => state.usersList;
+export const userListSelector = state => state.usersList;
 
-const curentPageSelector = state => state.currentPage;
+export const curentPageSelector = state => state.currentPage;
