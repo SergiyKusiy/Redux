@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as userActions from './users.actions';
 import Pagination from './Pagination';
 import User from './User';
-import { userListSelector, curentPageSelector } from './user.selectors'
+import { userListSelector, currentPageSelector } from './user.selectors'
 
 class UsersList extends React.Component {
   render() {
