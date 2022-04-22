@@ -1,5 +1,5 @@
-import { applyMiddleware, combineReducers, compose } from 'redux';
-import { legacy_createStore as createStore} from 'redux'
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+// import { legacy_createStore as createStore} from 'redux'
 import thunk from 'redux-thunk';
 import tasksReducer from './tasks/tasks.reducer';
 const reducer = combineReducers({
