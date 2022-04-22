@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Spinner from './Spinner';
 import { isFetchingSelector, userDataSelector } from './users.selectors';
 
@@ -23,6 +24,16 @@ const UserInfo = ({ userData, isFetching }) => {
     </div>
   );
 };
+
+UserInfo.PropTypes = {
+  isFetching: PropTypes.bool.isRequired,
+  userData: PropTypes.shape(),
+}
+
+UserInfo.defaultValue = {
+  userData: null,
+}
+
 const mapState = state => {
   return {
     userData: userDataSelector(state),

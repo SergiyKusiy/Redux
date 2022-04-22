@@ -12,6 +12,9 @@ const logger = store => next => action => {
  
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(counterReducer, composeEnhancers(applyMiddleware(logger)));
+const store = createStore(
+   counterReducer,
+   composeEnhancers(applyMiddleware(logger))
+);
 
 export default store;

@@ -1,32 +1,54 @@
-import React from "react";
-import { useState } from "react";
-import { connect } from "react-redux";
-import * as usersActions from "./users.actions";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import * as usersActions from './users.actions';
 
-const SearchField = ({ fetchUserData }) => {
-  const [userName, setUserName] = useState("");
+class SearchField extends Component {
+  state = {
+    userName: '',
+  }
 
-  return (
-    <div className="name-form">
-      <input
-        type="text"
-        className="name-form__input"
-        value={userName}
-        onChange={(e) => setUserName(e.target.value)}
-      />
-      <button className="name-form__btn btn" onClick={() => {
-          fetchUserData(userName);
-        }}
-      >
-        Show
-      </button>
-    </div>
-  );
-};
+  onChange = event => {
+    this.setState({
+      userName: event.target.value,
+    })
+  };
+
+  handleUserSearch = () => {
+    this.props.showSpinner();
+    this.props.fetchUserData(this.state.userName);
+  };
+  
+  render() {
+    return (
+      <div className="name-form">
+        <input
+          type="text"
+          className="name-form__input"
+          value={this.state.userName}
+          onChange={this.onChange}
+        />
+        <button
+          className="name-form__btn btn"
+          onClick={this.handleUserSearch}
+        >
+          Show
+        </button>
+      </div>
+    );
+  }
+}
+
+SearchField.propTypes = {
+  showSpinner: PropTypes.func.isRequired,
+  userDataRecieved: PropTypes.func.isRequired,
+  fetchUserData: PropTypes.func.isRequired,
+}
 
 const mapDispatch = {
+  showSpinner: usersActions.showSpinner,
+  userDataRecieved: usersActions.userDataRecieved,
   fetchUserData: usersActions.fetchUserData,
 };
 
-const connector = connect(null, mapDispatch);
-export default connector(SearchField);
+export default connect(null, mapDispatch)(SearchField);
